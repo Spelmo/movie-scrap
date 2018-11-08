@@ -1,0 +1,25 @@
+<div class="center jumbotron">
+    <h1> Resultats de votre recherche <%= @spar %> </h1>
+
+    <% if @lastarr.count > 1 %>
+    <h2> Seuls les 20 premiers résultats sont affichés </h2>
+    <table class="table table-striped">
+          <tr>
+          	<th>Film</th>
+            <th>Date de sortie</th>
+            <th>Realisateur</th>
+            <th>Image</th>
+       	  </tr>
+
+      <% @lastarr.each do |key, value| %>
+        <tr>
+        	<td> <%= key %></td>
+          <td> <%= value %></td>
+        	<%end%>
+        </tr>
+      </table>
+
+    <% else %>
+    <p class="text-center"> Pas de correspondance dans la base, désolé ! </p>
+    <% end %>
+</div>
