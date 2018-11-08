@@ -14,7 +14,9 @@
       <% @lastarr.each do |key, value| %>
         <tr>
         	<td> <%= key %></td>
-          <td> <%= value %></td>
+          <td> <%= value[0] %></td>
+          <td> </td>
+          <td> <%= image_tag value[1] %></td>
         	<%end%>
         </tr>
       </table>

@@ -12,7 +12,7 @@ end
 
 def log_API
   Dotenv.load
-  Tmdb::Api.key(Rails.application.credentials.themoviedb)
+  Tmdb::Api.key(ENV['MOVIE_DB'])
 end
 
 def data_retrieval(query)
@@ -21,6 +21,7 @@ def data_retrieval(query)
   @search.resource('movie') # determines type of resource
   @search.query(@query) # the query to search against
   @array = @search.fetch # makes request
+  puts @array
 
 #format the result the right way
   @newarr = {}
@@ -36,7 +37,7 @@ def data_retrieval(query)
 #          end
 #       end
 
-     @newarr[movie["title"]] = movie["release_date"]
+     @newarr[movie["title"]] = [movie["release_date"], "https://image.tmdb.org/t/p/w200/#{movie["poster_path"]}"]
        end
   return @newarr
 end
