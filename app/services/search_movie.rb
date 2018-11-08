@@ -12,7 +12,7 @@ end
 
 def log_API
   Dotenv.load
-  Tmdb::Api.key(ENV['THE_MOVIE_DB_KEY'])
+  Tmdb::Api.key(Rails.application.credentials.themoviedb)
 end
 
 def data_retrieval(query)
